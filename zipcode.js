@@ -1,4 +1,3 @@
-//ZIP CODE MASK
 function onChange(control, oldValue, newValue, isLoading, isTemplate) {
    if (isLoading || newValue === '') {
       return;
@@ -8,13 +7,12 @@ function onChange(control, oldValue, newValue, isLoading, isTemplate) {
       .replace(/(\d{5})(\d)/, '$1-$2')
       .replace(/(-\d{3})\d+?$/, '$1');
 	if(newText.length != 9) {
-		alert('Atenção! O CEP deve conter no mínimo 8 dígitos.');
+		g_form.showFieldMsg('u_zip_code', 'Digite um CEP válido', 'error');
 	}
 	if(newText == newValue) {
 		return;
 	} else {
 		g_form.setValue('u_zip_code', newText);
-		alert(newText);
 	}
    
 }
